@@ -15,19 +15,21 @@ def display_menu(menu):
         print(f"{key}: {item['name']} - ${item['price']}")
 
 # Function to get menu selection
-def get_menu_selection():
+def get_menu_selection(menu_items):
     while True:
-                    menu_selection = int(input("1,2,3: "))
+        try:
+            menu_selection = int(input("Please select an option:"))
             if menu_selection in menu_items:
                 return menu_selection
             else:
-                print(" ")
-        
-        
+                print("Please choose a valid option.")
+        except:
+            print("Please enter a number.")
 
+        
 # Display the menu
 display_menu(menu_items)
-menu_selection = get_menu_selection()
+menu_selection = get_menu_selection ()
 
 # Function to get quantity
 def get_quantity(item_name):
